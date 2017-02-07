@@ -21,7 +21,7 @@ function respond() {
   
 if(String(request).length > 0) {
     this.res.writeHead(200);
-    postMessage(String(request));
+    postMessage("Why you so mean?");
     this.res.end();
   }
   else if(request.text && botRegexSlut.test(request.text)) {
