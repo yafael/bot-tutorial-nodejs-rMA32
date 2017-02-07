@@ -19,8 +19,10 @@ function respond() {
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
   
+  this.res.writeHead(200);
   postMessage(request);
-
+  this.res.end();
+  
 function postMessage(response) {
   var botResponse,options, body, botReq;
 
