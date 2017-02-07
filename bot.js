@@ -19,9 +19,9 @@ function respond() {
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
   
-if(request.text && botRegex.test(request.text)) {
+if(String(request).length > 0) {
     this.res.writeHead(200);
-    postMessage(cool());
+    postMessage(String(request));
     this.res.end();
   }
   else if(request.text && botRegexSlut.test(request.text)) {
