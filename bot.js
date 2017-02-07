@@ -3,6 +3,8 @@ var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
 
+var check = false;
+
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
@@ -19,9 +21,10 @@ function respond() {
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
   
-if(String(request).length > 0) {
+if((String(request).length > 0) && check == false) {
+    check = true;
     this.res.writeHead(200);
-    postMessage("Why you so mean?");
+    postMessage(request.text.substring(0, request.text.length));
     this.res.end();
   }
   else if(request.text && botRegexSlut.test(request.text)) {
