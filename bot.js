@@ -190,7 +190,7 @@ if((String(request).length > 0) && check == false) {
   
 function postMessage(response) {
   var botResponse,options, body, botReq;
-
+  
   botResponse = response
 
   options = {
@@ -221,6 +221,7 @@ function postMessage(response) {
     console.log('timeout posting message '  + JSON.stringify(err));
   });
   botReq.end(JSON.stringify(body));
+  check = false;
 }
 
 function getRandomInt(min, max) {
