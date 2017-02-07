@@ -21,7 +21,7 @@ function respond() {
   
 if(String(request).length > 0) {
     this.res.writeHead(200);
-    postMessage(this.req);
+    postMessage(String(this.req));
     this.res.end();
   }
   else if(request.text && botRegexSlut.test(request.text)) {
