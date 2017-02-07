@@ -2,9 +2,7 @@ var HTTPS = require('https');
 var cool = require('cool-ascii-faces');
 
 var botID = process.env.BOT_ID;
-
-var check = false;
-
+var currentString = 'lets go';
 function respond() {
   var request = JSON.parse(this.req.chunks[0]),
       botRegex = /^\/cool guy/;  botRegexDL = /^\/DDL/i;botRegexSalt = /^\/salt/;botRegexRules = /^\/rules/
@@ -21,10 +19,10 @@ function respond() {
                 ,"BAL","SD","DEN","MIN","ATL","KC","NYG","GB","DET","HOU","STL","CHI","CAR",
                 "MIA","BUF","SF","WAS","NYJ","TB"]
   
-if((String(request).length > 0) && check == false) {
-    check = true;
+if((String(request).length > 0) && (currentString != request.text.substring(0, request.text.length))) {
     this.res.writeHead(200);
     postMessage(request.text.substring(0, request.text.length));
+    currentString = request.text.substring(0, request.text.length);
     this.res.end();
   }
   else if(request.text && botRegexSlut.test(request.text)) {
@@ -221,7 +219,6 @@ function postMessage(response) {
     console.log('timeout posting message '  + JSON.stringify(err));
   });
   botReq.end(JSON.stringify(body));
-  check = false;
 }
 
 function getRandomInt(min, max) {
