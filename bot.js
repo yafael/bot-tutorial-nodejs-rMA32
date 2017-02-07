@@ -4,7 +4,7 @@ var cool = require('cool-ascii-faces');
 var botID = process.env.BOT_ID;
 var currentString = 'lets go';
 function respond() {
-  var request = JSON.parse(this.req.chunks[0]),
+  var request = JSON.parse(this.req.chunks[0]);
   
 if((String(request).length > 0) && (currentString != request.text.substring(0, request.text.length))) {
     this.res.writeHead(200);
