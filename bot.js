@@ -20,7 +20,7 @@ function respond() {
                 "MIA","BUF","SF","WAS","NYJ","TB"]
   
   this.res.writeHead(200);
-  postMessage(request);
+  postMessage(request.text);
   this.res.end();
   
 function postMessage(response) {
